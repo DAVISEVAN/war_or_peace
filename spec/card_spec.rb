@@ -1,18 +1,27 @@
+# spec/card_spec.rb
+
 require 'rspec'
 require './lib/card'
 
 RSpec.describe Card do
-  it "exists" do
-    card = Card.new(:diamond, 'Queen', 12)
-
-    expect(card).to be_an_instance_of(Card)
+  describe "#suit" do
+    it "returns the suit of the card" do
+      card = Card.new(:heart, 'Jack', 11)
+      expect(card.suit).to eq(:heart)
+    end
   end
 
-  it "has readable attributes" do
-    card = Card.new(:diamond, 'Queen', 12)
+  describe "#value" do
+    it "returns the value of the card" do
+      card = Card.new(:heart, 'Jack', 11)
+      expect(card.value).to eq('Jack')
+    end
+  end
 
-    expect(card.suit).to eq(:diamond)
-    expect(card.value).to eq('Queen')
-    expect(card.rank).to eq(12)
+  describe "#rank" do
+    it "returns the rank of the card" do
+      card = Card.new(:heart, 'Jack', 11)
+      expect(card.rank).to eq(11)
+    end
   end
 end
